@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+  
+</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>REGISTER</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <script src="js/jquery-1.10.2.min.js"></script>
+    
+    <script>
+        
+    
+        server = "http://indowebit.web.id/kotata/server/";
+	$(document).ready(function() {
+            $('#k_jenjang').change(function(){
+                loadSekolah();
+            });
+
+            $('#statusnegeri').change(function(){
+                loadSekolah();
+            });
+
+            $('#kabupaten').change(function(){
+                loadSekolah();
+            });
+            
+            loadKabupaten();
+	});
+			
+        function loadKabupaten(){
+            userData = localStorage.getItem("usernameStorage");
+            $('#kabupaten').empty();
+            $.ajax({ 
+                type: "POST",   
+                url: "http://indowebit.web.id/kotata/server/services/sekolah/kabupaten.php",   
+                data: {
+                    limit: 1000000,
+                    page: 1
+                 },
+                 dataType: 'json',
+                 async: true,
+                 success : function(response) {
+
+                    if(response.length>0){
+                        var option = $('<option />');
+                        option.attr('value', '').text('Pilih Kabupaten');
+                        $('#kabupaten').append(option);
+                        for(var x=0;x<response.length;x++){
+                            var option = $('<option />');
+                            option.attr('value', response[x]["nama"]+'#'+response[x]["direktori"]).text(response[x]["nama"]);
+                            $('#kabupaten').append(option);
+                        }
+                    } else {
+                        alert(response[0].error);
+                    }
+                },
+
+                failure: function(){
+                    alert("Terkendala Jaringan.");
+                }
+            });
+	}
+        
+        function loadSekolah(){
+            userData = localStorage.getItem("usernameStorage");
+            $('#namasekolah').empty();
+            kabupaten = $('kabupaten').val();
+            var str = $('#kabupaten').val();
+            var resx = str.split("#");
+            var dir = resx[1];
+            //alert(dir);
+            $.ajax({ 
+                type: "POST",   
+                url: "http://indowebit.web.id/kotata/server/services/sekolah/"+dir+"/proses.php",   
+                data: {
+                    is_negeri:$('#statusnegeri').val(),
+                    k_jenjang: $('#k_jenjang').val(),
+                    limit:1000000,
+                    page:1
+                },
+                dataType: 'json',
+                async: true,
+                success : function(response) {
+                    if(response.sekolah.length>0){
+                        for(var x=0;x<response.sekolah.length;x++){
+                            var option = $('<option />');
+                            option.attr('value', response.sekolah[x]["nama"]).text(response.sekolah[x]["nama"]);
+                            $('#namasekolah').append(option);
+                        }
+                    } else {
+                        alert(response[0].error);
+                    }
+                }
+            });
+	}
+	
+        function register() {
+            var response = '';	
+            var str = $('#kabupaten').val();
+            var resx = str.split("#");
+            var kabupaten = resx[0];
+
+            try {
+                window.cpjs.setLoading(true);
+            } catch(err) {
+                console.log(err.message);
+            }
+                    
+            $.ajax({ type: "POST",   
+                url: server+"services/publik/register_sekolah.php",   
+                data: {
+                    action:'getReg',
+                    user: $('#user').val(),
+                    pass: $('#pass').val(),
+                    namasekolah: $('#namasekolah').val(),
+                    namasekolah2: $('#namasekolah2').val(),
+                    namakepsek: $('#namakepsek').val(),
+                    statusnegeri: $('#statusnegeri').val(),
+                    k_jenjang: $('#k_jenjang').val(),
+                    alamatsekolah: $('#alamatsekolah').val(),
+                    desakecamatan: $('#desakecamatan').val(),
+                    kabupaten: kabupaten
+                },
+                dataType: 'json',
+                async: true,
+                success : function(response) {
+                    try {
+                        window.cpjs.setLoading(false);
+                    } catch(err) {
+                        console.log(err.message);
+                    }
+                    if(response.length>0){
+                        for(var x=0;x<response.length;x++) { 
+                            //alert(response[x].pesan);
+                            if(response[x].pesan == "Register Berhasil.") {
+                                try {
+                                    window.cpjs.suksesRegistrasi();
+                                } catch(err) {
+                                    console.log(err.message);
+                                }
+                                ///window.location.href = "index.html";
+                            } else {
+                                try {
+                                    window.cpjs.gagalRegistrasi(response[x].pesan);
+                                } catch(err) {
+                                    console.log(err.message);
+                                }
+                            }
+                        }
+                    } else {
+                        try {
+                            window.cpjs.gagalRegistrasi(response[0].error);
+                        } catch(err) {
+                            console.log(err.message);
+                        }
+                    }
+                }
+            });
+        }	
+    </script>		
+</head>
+
+<body> 
+<div id="spin"></div>
+        <!-- Top content -->
+        <div class="top-content">
+             
+                <div class="col-xs-4" style="text-align: left; padding-top:16px;">
+                  <img src="img/head.png" class="logopojok">
+                </div>
+                <div class="col-xs-8 text" style="text-align: right; padding-top:18px; padding-bottom:10px;">
+                  <strong>Aset</strong> Desa     
+                  
+                </div>
+            
+
+              <div class="topbg">
+                <div class="col-xs-4" style="text-align: left; padding-top:3px;">
+                  <a href="#" class="btn btn-back goto_login" role="button"><i class="fa fa-chevron-left"></i> Kembali</a>
+                </div>
+                <div class="col-xs-4"  style="text-align: center; padding-top:8px; color:white;">
+                  <p><strong>DAFTAR</strong></p>
+                </div>
+                <div class="col-xs-4" style="text-align: right; padding-top:3px;">
+                  <a href="#" class="btn btn-back goto_login" role="button"><i class="fa fa-sign-out"></i> Login</a>
+                </div>
+              </div>
+
+                <div class="topwelcome">
+                    <div class="col-xs-12" style="text-align: left;font-size: 14px; color:#FFFFFF; padding-top:4px;"><p>Selamat Datang Desa <span id="nama_desa"></span>!</p></div>        	   
+                </div>
+
+     <div class="inner-bg">
+      <div class="container" style="text-align:left;">
+        <div class="panel panel-default">
+          <div class="panel-body texttable">
+              <form action="register_act.php" method="post" class="form-horizontal">
+
+           <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Username :</h6>
+                </div>
+                <div class="col-xs-12">
+              <input name="user" class="form-control" id="user" autocomplete="off" type="text">
+            </div> 
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Password :</h6>
+                </div>
+                <div class="col-xs-12">
+              <input name="pass" class="form-control" id="pass" autocomplete="off" type="password">
+            </div> 
+            </div>
+			
+			
+             <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Kabupaten :</h6>
+                </div>
+                <div class="col-xs-12">
+              <select name="kabupaten" class="form-control" id="kabupaten">
+			  <option value="">Pilih Kabupaten</option>
+			  </select>
+            </div> 
+            </div>
+             
+            <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Jenjang :</h6>
+                </div>
+                <div class="col-xs-12">
+				<select id="k_jenjang" class="form-control" >
+					<option value="1">TK</option>
+					<option value="2">SD</option>
+					<option value="3">SMP</option>
+					<option value="4">SMA</option>
+					<option value="5">SMK</option>
+				</select>
+            </div>
+            </div>
+			
+             
+             <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Status Negeri/ Swasta :</h6>
+                </div>
+                <div class="col-xs-12">
+				<select id="statusnegeri" class="form-control" >
+					<option value="1">Negeri</option>
+					<option value="0">Swasta</option>
+				</select>
+            </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Nama Desa :</h6>
+                </div>
+                <div class="col-xs-12">
+              <select id="namasekolah" class="form-control" >
+					<option value=""></option>
+				</select>
+            </div>  
+            </div>
+			
+             <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Nama Desa 2 :</h6>
+                </div>
+                <div class="col-xs-12">
+              <input name="namasekolah2" placeholder="Diisi kalau belum ter list" class="form-control" id="namasekolah2" type="text">
+            </div> 
+            </div>
+			
+             <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Nama Kepala Desa :</h6>
+                </div>
+                <div class="col-xs-12">
+              <input name="namakepsek" class="form-control" id="namakepsek" type="text">
+            </div> 
+            </div>
+              
+            <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Alamat Desa :</h6>
+                </div>
+                <div class="col-xs-12">
+              <input name="alamatsekolah" class="form-control" id="alamatsekolah" type="text">
+            </div>  
+            </div>
+             
+            <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Kecamatan :</h6>
+                </div>
+                <div class="col-xs-12">
+              <input name="desakecamatan" class="form-control" id="desakecamatan" type="text">
+            </div> 
+            </div>
+             
+                   
+          
+        </form></div>
+
+
+             <div class="modal-footer">
+         <div class="col-xs-6" style="text-align: left; padding-top:3px;">
+                          <a href="#" class="btn btn-back goto_login" role="button"><i class="fa fa-chevron-left"></i> Batal</a>
+               </div>
+ 
+              <div class="col-xs-6" style="text-align: right; padding-top:3px;">
+                <a class="btn btn-back" onclick="register()" role="button">
+                  <i class="fa fa-sign-out">  
+                  </i>Daftar
+                </a>
+
+              </div>
+              </div>
+
+    </div>
+  </div>
+
+
+</body>
+     
+     
+    <script type="text/javascript">
+
+        $('.goto_login').click(function() {
+            try {
+                window.cpjs.gotoLogin();
+            } catch(err) {
+                console.log(err.message);
+            }
+        });
+    
+    </script>
+</html>

@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/card_background" >
+
+    <nanang.application.id.customfonts.MyTextView
+		android:id="@+id/txtFromGalley"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentRight="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_centerHorizontal="true"
+	    android:padding="20dp"
+	    android:background="@drawable/text"
+	    android:gravity="center_horizontal"
+	    android:text="Galeri"
+	    android:textSize="18sp" />
+
+	<nanang.application.id.customfonts.MyTextView
+		android:id="@+id/txtFromCamera"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentRight="true"
+		android:layout_below="@+id/txtFromGalley"
+		android:layout_centerHorizontal="true"
+		android:gravity="center_horizontal"
+		android:padding="20dp"
+		android:text="Kamera"
+		android:textSize="18sp" />
+
+
+	<nanang.application.id.customfonts.MyTextView
+		android:id="@+id/txtPDFDownload"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentRight="true"
+		android:layout_below="@+id/txtFromCamera"
+		android:layout_centerHorizontal="true"
+		android:gravity="center_horizontal"
+		android:padding="20dp"
+		android:text="Download PDF"
+		android:textSize="18sp"
+		android:visibility="invisible"/>
+
+</RelativeLayout>

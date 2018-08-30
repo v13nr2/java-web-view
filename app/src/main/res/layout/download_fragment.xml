@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <!-- Download Button -->
+    <EditText
+        android:id="@+id/txtTahun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dip"
+        android:hint="Masukkan Tahun" />
+
+    <!-- Download Button -->
+
+
+    <Button
+        android:id="@+id/btnProgressBarPenggunaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTahun"
+        android:layout_marginTop="50dip"
+        android:text="Download 1" />
+
+    <Button
+        android:id="@+id/btnAsetHapus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnProgressBarPenggunaan"
+        android:layout_marginTop="50dip"
+        android:text="Download 2" />
+
+    <Button
+        android:id="@+id/btnProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAsetHapus"
+        android:layout_marginTop="50dip"
+        android:text="Download 3" />
+
+
+    <!-- Image view to show image after downloading -->
+    <ImageView android:id="@+id/my_image"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

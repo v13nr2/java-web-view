@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>ASET DESA</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/login.css">
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
+    </head>
+
+    <body>
+        <p class="SeMUTSoft">SeMUTSoft</p>
+
+        <!-- Top content -->
+        <div class="top-content">
+            <div class="inner-bg login">
+                <div class="container-fluid" style="padding-top: 3vh;">
+                    <div class="row">
+                        <div class="col-xs-12 text">
+                            <div class="col-xs-8 col-xs-offset-2" style="padding-left:32px;padding-right:32px;padding-top: 5%;"> 
+                                <img src="" alt="">
+                            </div>
+
+                            <!-- end header logo for android !-->
+
+                            <div class="col-xs-12"> 
+                                <h2>Sogi Grosir</h2>
+                            </div>
+                            <div class="col-xs-12">
+                              <div class="description">
+                                    <p style="color:white;">
+                                        PT. SOGI MUAMI DARING
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4 col-md-offset-4">
+                                <div class="form-top">
+                            <!-- <form action="index2.html" target="hidden" method="post"> -->
+                                        <div class="form-top-left" style="padding-top:15px">
+                                                <h3>Login</h3>
+                                        </div>
+                                        <div class="form-top-right">
+                                                <img src="img/icon/login_icon.png" alt="" style="height:32px";>
+                                        </div>
+                            </div>
+                            <div class="form-bottom">
+                                <form action="index2.html" target="hidden" method="post" class="login-form">
+                                    <div class="form-group">
+                                        <p style="font-size:11px; color:red; line-height: 1.4;" id="p2"></p>
+
+                                        <input type="text" name="contact-name" id="user" placeholder="Username" class="form-username form-control" style="padding-left:10px;"> 
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="password" style="-webkit-text-security: disc; padding-left:10px;" name="contact-email" id="pass" placeholder="Password" class="form-password form-control" >
+                                    </div>
+                                    <div class="form-login">
+                                        <button id="loginsiar" type="button" class="btn" onClick="login();">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div>
+                    <p></p>
+                </div>
+
+                <div>
+                      <p class="pusat">Copyright PT. Sogi Muami Daring</p>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
+    <script src="js/config.js"></script>
+    <script src="site/js/app.js"></script>
+
+<script type="text/javascript">
+
+    $('#goto_registrasi').click(function() {
+        try {
+            window.cpjs.gotoRegistrasi();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+    
+    $('#goto_lupa_password').click(function() {
+        try {
+            window.cpjs.gotoLupaPassword();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+    
+    function login() {
+        try {
+            window.cpjs.gotoProsesLogin($('#user').val(), $('#pass').val());
+        } catch(err) {
+            console.log(err.message);
+        }
+        
+        /*$.ajax({ type: "POST",   
+            url: server+"services/publik/login_desa.php",   
+            data: {
+                action:'getAuth',
+                user: $('#user').val(),
+                pass: $('#pass').val()
+            },
+            dataType: 'json',
+            async: true,
+            success : function(response) {
+                 if(response.length>0){
+                    for(var x=0;x<response.length;x++){ 
+                        alert(response[x].pesan);
+                        if(response[x].pesan == "Login Berhasil."){
+                            //localStorage.setItem("usernameStorage", $('#user').val());
+                            //window.location.href = "home.html";
+                            //userlogin = $('#user').val();
+                            //AddValueToDB2();
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                } else {
+                    alert(response[0].error);
+                }
+            },
+            failure: function(){
+                alert("Terkendala jaringan.");
+            }
+        });*/
+    }
+    
+    function logoutFront(){
+        $.ajax({ type: "POST",   
+            url: server+"services/publik/logout.php",   
+            data: {
+                action:'getAuth',
+                user: $('#user').val(),
+                pass: $('#pass').val()
+            },
+            dataType: 'json',
+            async: true,
+            success : function(response) {
+                for(var x=0;x<response.length;x++) { 
+                    alert(response[x].pesan);
+                }
+            }
+        });           
+    }
+    
+</script>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#008aff</color>
+    <color name="white">#FFFFFF</color>
+    <color name="purple">#800080</color>
+    <color name="blue">#0000FF</color>
+    <color name="red_sober">#FF0000</color>
+    <color name="yellow_sober">#FFFF00</color>
+    <color name="lightblue">#ADD8E6</color>
+    <color name="olive">#808000</color>
+    <color name="cloud_gray">#B6B6B4</color>
+    <color name="goose_gray">#D1D0CE</color>
+    <color name="water">#EBF4FA</color>
+    <color name="carbon_gray">#625D5D</color>
+    <color name="oil">#3B3131</color>
+    <color name="blue_light_holo">#ff33b5e5</color>
+    <color name="platinum">#E5E4E2</color>
+    <color name="cranbery">#9F000F</color>
+    <color name="grrenonion">#6AA121</color>
+    <color name="genre">#666666</color>
+    <color name="year">#888888</color>
+    <color name="orange">#FFBF00</color>
+    <color name="list_divider">#d9d9d9</color>
+    <color name="list_row_start_color">#ffffff</color>
+    <color name="list_row_end_color">#ffffff</color>
+    <color name="list_row_hover_start_color">#ebeef0</color>
+    <color name="list_row_hover_end_color">#ebeef0</color>
+    <color name="actionbar">#08c</color>
+    <color name="toolbar">#af00af</color>
+    <color name="body_background">#e8e8e8</color>
+    <color name="body_background_green">#82e783</color>
+    <color name="server_status_bar">#2b2b2b</color>
+    <color name="title_gray">#434343</color>
+    <color name="bg_msg_you">#8b9dc3</color>
+    <color name="bg_msg_from">#dfe3ee</color>
+    <color name="msg_border_color">#a1a1a1</color>
+    <color name="bg_btn_join">#1e6258</color>
+    <color name="bg_msg_input">#e8e8e8</color>
+    <color name="text_msg_input">#626262</color>
+    <color name="lblFromName">#777777</color>
+    <color name="buttonStroke">#808080</color>
+    <color name="buttonNormalStart">#cc0000</color>
+    <color name="buttonNormalEnd">#660000</color>
+    <color name="buttonPressed">#660000</color>
+    <color name="list_item_title">#000000</color>
+    <color name="list_background">#ffffff</color>
+    <color name="list_background_pressed">#c5c4c4</color>
+    <color name="counter_text_bg">#626262</color>
+    <color name="counter_text_color">#c5c4c4</color>
+    <color name="dashboard_title_color">#02d0bb</color>
+    <color name="dashboard_title_next_color">#f89752</color>
+    <color name="login_title_next_color">#10b9a6</color>
+    <color name="special_price">#006fa4</color>
+    <color name="old_price">#acacac</color>
+
+    <color name="colorPrimary">#000</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="iconcolor">#8b959e</color>
+    <color name="boticon">#999ba4ab</color>
+    <color name="boticoncolor">#24bdb6</color>
+
+    <color name="textSub">#76818a</color>
+    <color name="Tex">#404547</color>
+    <color name="White">#fff</color>
+
+    <color name="colordevider">#f1f2f4</color>
+    <color name="colorbutton">#ff5254</color>
+    <color name="iconcolour">#9ba4ab</color>
+    <color name="bglist">#f8f8f8</color>
+    <color name="strok">#e4e5ea</color>
+
+    <color name="global_color_primary_light">#f5f5f5</color>
+    <color name="global_color_green_primary">#4caf50</color>
+    <color name="global_color_green_primary_light">#c8e6c9</color>
+    <color name="global_color_green_primary_dark">#388e3c</color>
+    <color name="global_color_green_accent">#ffc107</color>
+    <color name="global_color_green_control_activated">#ffc107</color>
+
+    <color name="green">#5ccc78</color>
+    <color name="red">#ea495f</color>
+    <color name="yellow">#f8d64e</color>
+    <color name="light_green">#1bac94</color>
+
+    <color name="colortext">#100b20</color>
+    <color name="colorhint">#a9aaac</color>
+
+    <color name="drovercolour">#6E6E6D</color>
+    <color name="cattextcolour">#FFFFFF</color>
+    <color name="category_textcolour">#404547</color>
+    <color name="divider">#af00af</color>
+    <color name="droverbackground">#af00af</color>
+    <color name="droverbackground1">#ff004c</color>
+    
+</resources>

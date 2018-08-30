@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+</style>
+<script src="../../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+
+
+//======
+function picChange(evt){ 
+//bring selected photo in
+    //get files captured through input
+    var fileInput = evt.target.files;
+    if(fileInput.length>0){
+    //get the file
+      //window url 
+      var windowURL = window.URL || window.webkitURL;	
+      //picture url
+      var picURL = windowURL.createObjectURL(fileInput[0]);
+
+      //get canvas
+      var photoCanvas = document.getElementById("capturedPhoto");
+      var ctx = photoCanvas.getContext("2d");
+      //create image
+      var photo = new Image();
+
+      photo.onload = function(){
+        //draw photo into canvas when ready
+        ctx.drawImage(photo, 0, 0, 500, 400);
+      };
+
+      //load photo into canvas
+	  alert(picURL);    //pic source to display
+	  getFileNames();
+	  
+      photo.src = picURL;
+       //photo.src = 'blob:http://localhost:82/3ab56e45-ec96-4367-b2ba-5c7dacd40cf6';
+	   
+				
+				
+    }
+
+}
+function decodee(){
+		alert("start");
+	   var sampleImage = document.getElementById("capturedPhoto");
+	   canvas = convertImageToCanvas(sampleImage);
+			// Actions
+			document.getElementById("canvasHolder").appendChild(canvas);
+			document.getElementById("pngHolder").appendChild(convertImageToCanvas(canvas));
+			
+		alert("ok");
+	   
+}
+
+			
+			// Converts image to canvas; returns new canvas element
+			function convertImageToCanvas(image) {
+				var canvas = document.createElement("canvas");
+				canvas.width = image.width;
+				canvas.height = image.height;
+				canvas.getContext("2d").drawImage(image, 0, 0);
+
+				return canvas;
+			}
+
+			// Converts canvas to an image
+			function convertCanvasToImage(canvas) {
+				var image = new Image();
+				image.src = canvas.toDataURL("image/png");
+				return image;
+			}
+			
+
+			
+function getFileNames(){
+    var files = document.getElementById("files").files;
+    var names = "";
+    for(var i = 0; i < files.length; i++)
+        names += files[i].name + " ";
+    //alert(names);
+}
+</script>
+<style>
+html{
+	
+	background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #30B3B5;
+    height: 100%;
+    
+
+    /* background-color: transparent!important; */
+    overflow-x: hidden;
+}
+</style>
+</head>
+<body>
+<div>
+
+<p>
+Choose a picture from your device or capture one with your camera now:
+</p>
+<input type="button" onclick="decodee()" value="Click Me">
+<input type="file"  id="files" accept="image/*" onchange="picChange(event)"/>
+<p>
+Photo:
+</p>
+<canvas id="capturedPhoto" width="500" height="400">
+<h2>Canvas Image</h2>
+	<p id="canvasHolder">
+		
+	<canvas width="612" height="612"></canvas></p>
+	
+	<h2>Canvas -&gt; PNG Image</h2>
+	<p id="pngHolder"></p>
+
+</canvas>
+</div>
+</body>
+</html>

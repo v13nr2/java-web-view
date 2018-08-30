@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+ body, html {font-family:sans-serif; background-color:#000000;}
+div {width:80%; margin:auto; background-color:#ffffff; padding:5%; border:2px solid #990066; text-align:center; border-radius:10px;}
+canvas {padding:5%; border:2px solid #330000; background-color:#660000; border-radius:10px;}
+</style>
+       <script type="text/javascript" charset="utf-8" src="../../js/jquery-1.10.2.min.js"></script>
+       <script type="text/javascript" charset="utf-8" src="../../js/crud/db.js"></script>
+       <script type="text/javascript" charset="utf-8" src="../../js/getParamURL.js"></script>
+       <script type="text/javascript" charset="utf-8" src="../../js/crud/edit.js"></script>
+	   
+<script type="text/javascript">
+
+/*
+function getImage() {
+                  navigator.camera.getPicture(onSuccess, onFailure, {
+  destinationType: navigator.camera.DestinationType.FILE_URI,
+  sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+         });
+}
+
+function onSuccess(imageURI) {
+                  alert("Image location is:"+ imageURI);
+    }
+
+function onFailure(message) {
+                      alert("Get image failed: " + message);
+       }
+
+ */      
+
+
+ function picChange(evt){ 
+//bring selected photo in
+  //get files captured through input
+  var fileInput = evt.target.files;
+  
+  if(fileInput.length>0){
+  //get the file
+    var windowURL = window.URL || window.webkitURL;
+    var picURL = windowURL.createObjectURL(fileInput[0]);
+
+    
+     //get canvas
+    var photoCanvas = document.getElementById("capturedPhoto");
+    var ctx = photoCanvas.getContext("2d");
+    var photo = new Image();
+    photo.onload = function(){
+      //draw photo into canvas when ready
+      ctx.drawImage(photo, 0, 0, 300, 400);
+    };
+
+    //load photo into canvas
+    photo.src = picURL;
+    //release object url
+    windowURL.revokeObjectURL(picURL);
+  }
+}
+   
+
+</script>
+</head>
+<body>
+<button onclick="getImage();">Get Image</button>
+<div>
+ <p>
+Pilih Foto
+</p>
+<input type="file" accept="image/*" onchange="picChange(event)"/>
+<p>
+Photo:
+</p>
+<canvas id="capturedPhoto" width="300" height="400">
+</canvas>
+</div>
+</body>
+</html>

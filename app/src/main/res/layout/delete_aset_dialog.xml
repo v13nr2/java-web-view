@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+		android:padding="3dp"
+	android:background="@color/textSub" >
+
+	<RelativeLayout
+	    android:id="@+id/layout_down"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true"
+		android:background="@color/white"
+	    android:paddingBottom="10dp" >
+
+		<nanang.application.id.customfonts.MyTextView
+			android:id="@+id/text_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_marginTop="20dp"
+			android:layout_marginRight="20dp"
+			android:layout_marginLeft="20dp"
+			android:text="Hapus Data Aset Desa?"
+			android:textColor="@color/red"
+			android:textSize="18sp"
+			android:textStyle="bold" />
+
+	    <nanang.application.id.customfonts.MyTextView
+	        android:id="@+id/text_dialog"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/text_title"
+			android:layout_marginTop="20dp"
+			android:layout_marginRight="20dp"
+			android:layout_marginLeft="20dp"
+			android:text="Data aset desa akan dihapus."
+	        android:textColor="@color/text_msg_input"
+	        android:textSize="18sp"
+	        android:textStyle="bold" />
+
+		<LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+	        android:orientation="horizontal"
+			android:layout_margin="10dp"
+			android:layout_below="@+id/text_dialog">
+
+			<nanang.application.id.customfonts.MyTextView
+				android:layout_width="0dp"
+				android:layout_weight="1"
+				android:layout_height="wrap_content" />
+
+			<nanang.application.id.customfonts.MyTextView
+			    android:id="@+id/btn_no"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"	    
+	            android:layout_marginLeft="10dp"
+				android:padding="20dp"
+			    android:text="BATAL"
+			    android:textColor="@color/red"
+			    android:textStyle="bold" />
+	    
+	        <nanang.application.id.customfonts.MyTextView
+	            android:id="@+id/btn_yes"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:padding="20dp"
+	            android:text="HAPUS"
+	            android:textColor="@color/red"
+	            android:textStyle="bold"/>
+			    
+	    </LinearLayout>
+		
+		    
+	</RelativeLayout>
+</RelativeLayout>

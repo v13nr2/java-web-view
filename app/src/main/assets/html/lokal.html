@@ -1,0 +1,96 @@
+<html>
+<head>
+
+<!--
+This is an example that shows how to create an application that uses
+an embedded sqlite database
+in a mobile device (iphone,ipod,ipad,android using phonegap, jquery
+and sqlite.
+
+Your phonegap project will already contain the phonegap.js.
+
+You will need to download and add to your project the jquery.min.js
+file
+
+The application will create a database called WebSqlDb with a
+table in it called User, which contains three fields  UserId,
+FirstName and LastName
+
+When the application is run the firsttime, if the local database does
+not exist, the application
+will create the database and the table.
+
+The application shows two text boxes which you can use to add values
+to the database using the add record button
+
+The application also has a refresh button which will get the data from
+the database and show it on the screen
+
+When the application is run on the device the onBodyLoad() function is
+called, which sets up the database and table
+
+The Add Record button calls the AddValueToDB() function
+
+The Refresh button calls the ListDBValues() function
+
+There are a few alert statements in this application, which are only
+there for debuggin purposes.  They look like this
+alert("DEBUGGING: followed by some text");
+
+These are only in the application to indicate where the application is
+at when it is processing functions, etc
+
+You will need to comment these out before you deploy/sell your
+application
+
+-->
+
+<!-- Change this if you want to allow scaling -->
+   <meta name="viewport" content="width=default-width; user-
+scalable=no" />
+   <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+
+   <title>Embedded Sql Example</title>
+
+<!-- include the next line to use phonegap javascript functions 
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+-->
+       <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>.
+       <script type="text/javascript" charset="utf-8" src="js/crud/db.js"></script>
+       <script type="text/javascript" charset="utf-8" src="js/getParamURL.js"></script>
+       <script type="text/javascript" charset="utf-8" src="js/crud/edit.js"></script>
+
+<!-- main scripts used in this example -->
+ <script type="text/javascript" charset="utf-8">
+
+
+</script>
+<style>
+html{
+	
+	background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #30B3B5;
+    height: 100%;
+    
+
+    /* background-color: transparent!important; */
+    overflow-x: hidden;
+}
+</style>
+</head>
+<body onload="onBodyLoad()">
+<h1>LOKAL DATA</h1>
+<input id="txFirstName" type="text" placeholder="FirstName">
+<input id="txLastName" type="text" placeholder="Last Name">
+<input type="button" value="Add record" onClick="AddValueToDB()">
+<br>
+<span style="font-weight:bold;">Currently stored values:</span>
+<span id="lbUsers"></span>
+<table id="tableUsers" border="1" style="border-collapse:collapse;" width="100%">
+
+</table>
+</body>
+</html> 

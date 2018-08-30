@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Aset Desa</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+
+<div id="overlay"></div>
+  <div id="spin"></div>
+  <!-- Top content -->
+  <div class="top-content">
+
+    <div class="col-xs-5" style="text-align: left; padding-top:16px";>
+          <img src="img/head.png" height="100px" alt="" style="height:40px";>
+    </div>
+    <div class="col-xs-7 text" style="text-align: right; padding-top:18px; font-size:20px; padding-bottom:10px">
+      <strong>Grosir</strong> App
+    </div>
+    
+
+    <div class="topbg">
+      <div class="col-xs-4" style="text-align: left; padding-top:6px; color:white; font-size: 18px;">
+      </div>
+      <div class="col-xs-4" role="button" style="text-align: center; padding-top:8px ; color:white;">
+      <p><strong>BERANDA</strong></p>
+      </div>
+      <div class="col-xs-4" style="text-align: right; padding-top:3px;">
+        <a href="#" id="goto_logout" class="btn btn-back" role="button"><i class="fa fa-sign-out"></i> Keluar</a>
+      </div>
+    </div>
+
+    <div class="topwelcome">
+        <div class="col-xs-12" style="text-align: left;font-size: 14px; color:#FFFFFF; padding-top:4px;"><p>Selamat Datang  <span id="nama_desa"></span>!</p>
+      </div>        	   
+    </div>
+ 
+    <div class="inner-bg menu" id="#page2" data-tab="tab2">
+      <div class="container-fluid">
+        <div class="row">
+            
+
+            
+
+          <div id="startTracking" class="col-xs-12" style="padding-bottom:10px";>
+            <div class="form-topsub">
+              <div class="form-top-left">
+                <h3>DAFTAR GROSIR</h3>
+              </div>
+              <div class="form-topsub-right">
+                <img src="img/icon/manage.png" alt="" style="height:30px; padding-right:2px"; />
+              </div>
+            </div>
+          </div>
+        <div id="startTentang" class="col-xs-12" style="padding-bottom:10px";>
+          <div class="form-topsub">
+            <div class="form-top-left">
+              <h3>TENTANG</h3>
+            </div>
+            <div class="form-topsub-right">
+              <img src="img/icon/tentang.png" alt="" style="height:30px; padding-right:2px"; />
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+</div>
+
+
+
+
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+
+
+
+
+    });
+
+
+
+function clearNum(number){
+	while(String(number).indexOf(',') > -1){
+	 number = String(number).replace(',','');
+	}
+	return number;
+}
+
+	function formatCurrency(num) {
+		num = num.toString().replace(/\$|\,/g,'');
+		if(isNaN(num))
+		num = "0";
+		sign = (num == (num = Math.abs(num)));
+		num = Math.floor(num*100+0.50000000001);
+		cents = num%100;
+		num = Math.floor(num/100).toString();
+		if(cents<10)
+		cents = "0" + cents;
+		for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+		num = num.substring(0,num.length-(4*i+3))+','+
+		num.substring(num.length-(4*i+3));
+		//return (((sign)?'':'-') + '$' + num + '.' + cents);
+		return (((sign)?'':'-') + num);
+	}
+
+
+    var getParameterByName = function(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    };
+    
+    $(document).ready(function(){
+        //alert(getParameterByName('nama_desa'));
+        $('#nama_desa').text(getParameterByName('nama_desa'));
+    });
+        
+    $('#goto_logout').click(function() {
+        try {
+            window.cpjs.gotoLogout();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+    
+    $('#startCam').click(function() {
+        try {
+            window.cpjs.gotoKirimFoto();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+    
+    $('#startManageLokal').click(function() {
+        try {
+            window.cpjs.gotoLokal();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+    
+    $('#startManageAset').click(function() {
+        try {
+            window.cpjs.gotoManageAset();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+    
+    $('#startPengaturan').click(function() {
+        try {
+            window.cpjs.gotoPengaturan();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+    
+    $('#startEditDesa').click(function() {
+        try {
+            window.cpjs.gotoEditDesa();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+    
+    $('#startTentang').click(function() {
+        try {
+            window.cpjs.gotoTentang();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+
+
+    $('#startLaporan').click(function() {
+        try {
+            window.cpjs.gotoLaporan();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+
+    $('#startTracking').click(function() {
+        try {
+            window.cpjs.gotoTracking();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+
+    
+    
+</script>
+</html>

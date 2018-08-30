@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tentang</title>
+
+       <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <script src="js/jquery-1.10.2.min.js"></script>
+    </head>
+
+    <body>
+    <div id="spin"></div>
+        <!-- Top content -->
+        <div class="top-content">
+         
+                <div class="col-xs-4" style="text-align: left; padding-top:16px;">
+                 <img src="img/head.png" class="logopojok">
+                </div>
+                <div class="col-xs-8 text" style="text-align: right; padding-top:18px; padding-bottom:10px;">
+                  <strong>Trucking</strong> App
+                 
+                </div>
+              
+
+              <div class="topbg">
+                <div class="col-xs-4" style="text-align: left; padding-top:3px;">
+                  <a href="#" class="btn btn-back goto_back" role="button"><i class="fa fa-chevron-left"></i> Kembali</a>
+                </div>
+                <div class="col-xs-4"  style="text-align: center; padding-top:8px; color:white;">
+                  <p><strong>TENTANG</strong></p>
+                </div>
+                <div class="col-xs-4" style="text-align: right; padding-top:3px;">
+                  <a id="goto_logout" href="#" class="btn btn-back" role="button"><i class="fa fa-sign-out"></i> Keluar</a>
+                </div>
+              </div>
+            
+                <div class="topwelcome">
+                    <div class="col-xs-12" style="text-align: left;font-size: 14px; color:#FFFFFF; padding-top:4px;"><p>Selamat Datang  <span id="nama_desa"></span>!</p></div>
+                </div>
+
+            <div class="inner-bg">
+            <div class="container" style="text-align:left;">
+
+            <div class="panel panel-default">
+            <div class="panel-heading" style="background-color:#008a8a; color:white; font-weight:600;">Tentang Sogi LBS Grosir</div>
+              <div class="text-justify">
+                  <table class="table table-striped texttable text-justify">
+
+                  
+                  <tr>
+                  <td  class="col-xs-12" style="text-align: center; padding-top:13px;">
+                    <a href="#" class="btn btn-back goto_back" role="button"><i class="fa fa-chevron-left"></i> Kembali</a>
+                   
+                  </td>
+                  </tr>
+
+
+                  </table>
+                  </div>
+
+            
+            </div>
+
+            </div>
+            </div>
+            
+            
+
+        </div>
+
+
+    </body>
+
+</html>
+<script type="text/javascript">
+    var getParameterByName = function(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    };
+    
+    $(document).ready(function(){
+        //alert(getParameterByName('nama_desa'));
+        $('#nama_desa').text(getParameterByName('nama_desa'));
+    });
+    
+    $('.goto_back').click(function() {
+        try {
+            window.cpjs.gotoBack();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+
+    $('#goto_logout').click(function() {
+        try {
+            window.cpjs.gotoLogout();
+        } catch(err) {
+            console.log(err.message);
+        }
+    });
+</script>

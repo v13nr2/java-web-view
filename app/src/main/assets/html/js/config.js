@@ -1,0 +1,1 @@
+server = "https://semutsoft-trucking.id/dev";

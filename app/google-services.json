@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "33525458740",
+    "firebase_url": "https://aset-desa.firebaseio.com",
+    "project_id": "aset-desa",
+    "storage_bucket": "aset-desa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33525458740:android:1c489d7a850e7201",
+        "android_client_info": {
+          "package_name": "nanang.application.id.iad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33525458740-1qg9hpnfikq9o945jfkb1m16ic9jac08.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nanang.application.id.iad",
+            "certificate_hash": "904b41cfe193b91de0d83e612f8799cc2953bf25"
+          }
+        },
+        {
+          "client_id": "33525458740-tbdbi313poa53uomhhvkrhm9uli33idh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANdkkN_BBTkZTICyN5kj_f7kp8w53fMWo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33525458740-tbdbi313poa53uomhhvkrhm9uli33idh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

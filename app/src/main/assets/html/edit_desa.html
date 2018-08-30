@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <style type="text/css">
+        </style>
+  
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Isian Trucking</title>
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/datepicker.css">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap-datepicker.min.js"></script>
+    </head>
+
+    <body> 
+        <div id="spin"></div>
+        <!-- Top content -->
+        <div class="top-content">
+             
+                <div class="col-xs-4" style="text-align: left; padding-top:16px;">
+                  <img src="img/head.png" class="logopojok">
+                </div>
+                <div class="col-xs-8 text" style="text-align: right; padding-top:18px; padding-bottom:10px;">
+                  <strong>Trucking</strong> App
+                  
+                </div>
+              <div class="topbg">
+                <div class="col-xs-4" style="text-align: left; padding-top:3px;">
+                  <a href="#" class="btn btn-back goto_back" role="button"><i class="fa fa-chevron-left"></i> Kembali</a>
+                </div>
+                <div class="col-xs-4"  style="text-align: center; padding-top:8px; color:white;">
+                    <p><strong>DATA Tracking</strong></p>
+                </div>
+                <div class="col-xs-4" style="text-align: right; padding-top:3px;">
+                  <a id="goto_logout" href="#" class="btn btn-back" role="button"><i class="fa fa-sign-out"></i> Keluar</a>
+                </div>
+              </div>
+            
+            <div class="topwelcome">
+                <div class="col-xs-12" style="text-align: left;font-size: 14px; color:#FFFFFF; padding-top:4px;"><p>Selamat Datang <span id="nama_desa"></span>!</p></div>
+            </div>
+ 
+    <div class="inner-bg">
+      <div class="container" style="text-align:left;">
+        <div class="panel panel-default">
+          <div class="panel-body texttable">
+           <form action="register_act.php" method="post" class="form-horizontal">
+
+            <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Kolom 1 :</h6>
+                </div>
+                <div class="col-xs-12">
+                    <input name="kecamatan" class="form-control" id="kecamatan" autocomplete="off" type="text" readonly="readOnly">
+                </div> 
+            </div>
+               
+           <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Kolom 2 :</h6>
+                </div>
+                <div class="col-xs-12">
+                    <input name="desa" class="form-control" id="desa" readonly="readOnly" autocomplete="off" type="text">
+            </div> 
+            </div> 
+              <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Kode Lokal  :</h6>
+                </div>
+                <div class="col-xs-12">
+              <input name="lokal" class="form-control" id="lokal" type="text">
+            </div> 
+            </div>
+             <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Nama  :</h6>
+                </div>
+                <div class="col-xs-12">
+              <input name="kades" class="form-control" id="kades" type="text">
+            </div> 
+            </div>
+             <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Nama 2 :</h6>
+                </div>
+                <div class="col-xs-12">
+              <input name="sekdes" class="form-control" id="sekdes" type="text">
+            </div> 
+            </div>
+             <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Pengurus  :</h6>
+                </div>
+                <div class="col-xs-12">
+              <input name="pengurus" class="form-control" id="pengurus" type="text">
+            </div> 
+            </div>               
+            <div class="form-group">
+                <div class="col-xs-12 oranye">
+                  <h6>Alamat  :</h6>
+                </div>
+                <div class="col-xs-12">
+              <input name="alamatdesa" class="form-control" id="alamatdesa" type="text">
+            </div>  
+            </div>                      
+        </form>
+      
+        <div class="modal-footer">
+         <div class="col-xs-6" style="text-align: left; padding-top:23px;">
+                          <a href="#" class="btn btn-back goto_back" role="button"><i class="fa fa-chevron-left"></i> Batal</a>
+               </div>
+ 
+              <div class="col-xs-6" style="text-align: right; padding-top:23px;">
+                <a id="goto_save" href="#" class="btn btn-back" role="button">
+                  <i class="fa fa-sign-out">  
+                  </i><span id="save">Simpan</span>
+                </a>
+
+              </div>
+        </div>
+              
+    </body>
+
+    <script type="text/javascript">
+        var getParameterByName = function(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        };
+
+        $(document).ready(function(){
+            //alert(getParameterByName('nama_desa'));
+            $('#nama_desa').text(getParameterByName('nama_desa'));
+        });
+
+        var setDataDesa = function(kecamatan, desa, lokal, kades, sekdes, pengurus, alamatdesa) {
+            $('#kecamatan').val(kecamatan); 
+            $('#desa').val(desa); 
+            $('#lokal').val(lokal); 
+            $('#kades').val(kades); 
+            $('#sekdes').val(sekdes); 
+            $('#pengurus').val(pengurus); 
+            $('#alamatdesa').val(alamatdesa); 
+        };
+        
+        function opsi_togle(){
+            //$('#ketOpsi').hide();
+        }
+
+        function opsi_togleOn(){
+            $('#ketOpsi').show();
+        }
+
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('#') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+
+            return vars;
+        }
+        
+        $('#goto_save').click(function() {
+            var kecamatan = $('#kecamatan').val(); 
+            var desa = $('#desa').val(); 
+            var lokal = $('#lokal').val(); 
+            var kades = $('#kades').val(); 
+            var sekdes = $('#sekdes').val(); 
+            var pengurus = $('#pengurus').val();
+            var alamatdesa = $('#alamatdesa').val();
+            try {
+                window.cpjs.gotoSaveDesa(kecamatan, desa, lokal, kades, sekdes, pengurus, alamatdesa);
+            } catch(err) {
+                console.log(err.message);
+            }
+        });
+
+        $('.goto_back').click(function() {
+            try {
+                window.cpjs.gotoBack();
+            } catch(err) {
+                console.log(err.message);
+            }
+        });
+
+        $('#goto_logout').click(function() {
+            try {
+                window.cpjs.gotoLogout();
+            } catch(err) {
+                console.log(err.message);
+            }
+        });
+
+        $(document).ready(function(){
+            try {
+                window.cpjs.loadDataDesa();
+            } catch(err) {
+                console.log(err.message);
+            }
+        });
+    </script>
+
+</html>

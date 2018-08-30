@@ -1,0 +1,138 @@
+<resources>
+
+    <string name="app_name">Grosir Sogi</string>
+    <string name="nol">-000</string>
+    
+    <string name="back"> </string>
+    
+    
+    <string name="action_add">Baru</string>
+    <string name="action_transaksi">Transaksi</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Hapus</string>
+    <string name="action_setting">Setting</string>
+    <string name="action_favorite">Favorite</string>
+    <string name="action_proses">Proses</string>
+    <string name="action_kembali">Kembali</string>
+    <string name="action_download">Download</string>
+    <string name="action_search">Search</string>
+    
+    <string name="groups_jumlah_nomer">0 Nomer</string>
+    <string name="groups_nama_group">Nama</string>
+    <string name="groups_pejelasan_group">Keterangan</string>
+    
+    <string name="tanggal">Tanggal</string>
+   
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
+    
+    <string name="nama_club">Nama Club</string>
+    <string name="periode">Periode</string>
+    
+    <string name="input_pin_submit">Masuk</string>
+    <string name="input_pin_label">Masukan Pin:</string>
+    
+    <string name="detail_nama_peserta">Nama Peserta:</string>
+    <string name="detail_no_urut">No. Urut:</string>
+    <string name="detail_no_registrasi">No. Registrasi:</string>
+    <string name="detail_tanggal_lahir">Tanggal Lahir:</string>
+    <string name="detail_jenis_kelamin">Jenis Kelamin:</string>
+    <string name="detail_sabuk">Sabuk:</string>
+    <string name="detail_grade">Grade:</string>
+    <string name="detail_unit">Unit:</string>
+    <string name="detail_basic_movement">Basic Movement:</string>
+    <string name="detail_poomsae">Poomsae:</string>
+    <string name="detail_kyorugi">Kyorugi:</string>
+    <string name="detail_hosinsul">Hosinsul:</string>
+    <string name="detail_kyukpa">Kyukpa:</string>
+    <string name="detail_nilai_rata_rata">Nilai Rata-Rata:</string>
+    <string name="detail_batas_lulus">Batas Kelulusan:</string>
+    <string name="detail_hasil_ujian">Hasil Ujian:</string>
+    
+    <string name="periksa_koneksi">Periksa koneksi &amp; coba lagi</string>
+    <string name="coba_lagi">Coba Lagi</string>
+    
+    <string name="category_title">Kategori Buku</string>
+    <string name="peserta_hasil_ujian_title">Peserta Hasil Ujian</string>
+    <string name="booking_list_title">Detail Booking</string>
+    <string name="detail_histori">Detail Histori</string>
+    <string name="pesan_title">Pesan Admin</string>
+    <string name="lokasi_title">Group By Location</string>
+    
+    <string name="search_title">Search</string>
+    <string name="search_katakunci">Nama Peserta / No. Urut / No. Registrasi:</string>
+    <string name="search_kategori">Kategori:</string>
+    <string name="search_setup_ujian">Setup Ujian:</string>
+    <string name="search_lokasi">Lokasi:</string>
+    <string name="search_btn_search">Search</string>
+    <string name="no_result">Tidak ada data!</string>
+    <string name="no_data_pinjam">Tidak buku yang akan dipinjam!</string>
+    
+    <string name="app_desc">Pesan Peminjaman Buku Secara Online</string>
+    <string name="app_sign_in_desc">Isi Email dan Password terdaftar kemudian tekan Masuk unutk masuk. Tekan Registrasi untuk registrasi.</string>
+    <string name="app_lupa_password_desc">Masukan email terdaftar untuk mengajukan reset password.</string>
+    <string name="app_sign_up_desc">Lengkapi data pada kolom yang disediakan kemudian tekan Registrasi.</string>
+    
+    <string name="login_desc">Gratis registrasi, tekan Sign Up</string>
+    <string name="signup_nama">Nama:</string>
+    <string name="signup_photo">Photo:</string>
+    <string name="signup_upload">Upload</string>    
+    <string name="login_email">Email:</string>
+    <string name="login_password">Password:</string>
+    <string name="login_bantuan">Lupa password!</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="login_sign_in">Masuk</string>
+    <string name="login_sign_up">Registrasi</string> 
+    <string name="bantuan_detail">Jika Anda ada: \n- Pertanyaan \n- Butuh bantuan \n- Lupa password \n- atau masalah lain, \n\nSegera hubungi kami di: \nofficial.rumahdirektori@gmail.com</string> 
+    <string name="user_profil">User</string> 
+    <string name="sign_out">Sign Out</string> 
+    <string name="booking_title">Booking List</string> 
+    <string name="denda_title">Denda Berjalan</string> 
+    <string name="histori_pinjam_title">Histori Pinjam</string>
+    <string name="booking">Pesan</string>
+    <string name="hasil">HASIL</string>
+    <string name="status_booking">Booking</string> 
+    <string name="proses_pinjam">Proses Pinjam</string> 
+    <string name="setup_ujian_title">Setup Ujian</string> 
+    <string name="wasit_juri_title">Wasit / Juri</string>
+    <string name="kegiatan_title">Test / Kegiatan</string> 
+    <string name="nilai_rata_rata">Nilai:</string> 
+    <string name="nama_peserta">Nama Peserta (000)</string> 
+    <string name="no_reg">No. Reg. 0000</string> 
+    <string name="nilai">000</string> 
+    <string name="menu_member_title">MEMBER</string>
+    <string name="menu_utama_title">MENU UTAMA</string>
+    <string name="menu_referee_title">REFEREE</string>
+    <string name="menu_sertifikat_title">CERTIFICATE TI</string>
+    <string name="menu_kukkiwon_title">KUKKIWON</string>
+    <string name="activity_kegiatan_title">Pilih Test / Event</string>    
+    <string name="activity_setup_ujian_title">Pilih Setup Ujian</string>    
+    <string name="activity_wasit_title">Wasit Hasil Test / Event</string>    
+    <string name="activity_sertifikat_ti_nama">Nama:</string>        
+    <string name="activity_sertifikat_ti_tempat_lahir">Tempat Lahir:</string>    
+    <string name="activity_sertifikat_ti_tanggal_lahir">Tanggal Lahir:</string>
+    <string name="activity_sertifikat_ti_propinsi">Propinsi:</string>
+    <string name="activity_sertifikat_ti_title">Pencarian Sertifikat TI</string>
+        
+    <string name="activity_member_title">Hasil Ujian Member</string>
+    <string name="activity_detail_member_title">Detail Hasil Ujian Member</string>
+    <string name="peng_prov">Propinsi TI</string>
+    <string name="tempat_tanggal_lahir">Tempat, Tanggal Lahir</string>
+    <string name="nama">Nama</string>
+    <string name="activity_sertifikat_title">Hasil Pencarian</string>
+    
+    <string name="save_image">Simpan Gambar</string>
+    <string name="list_dialog_title">Title Dialog</string>
+    <string name="listdata_alamat">Jalan Sukamaju Baru Komplek Damai Blok C7 Citeureup Bogor.</string>
+    <string name="listdata_nama">Nama Tempat</string>
+    <string name="timeView">00:00</string>
+
+    <string name="signup"><b><u>Registrasi</u></b></string>
+    <string name="signin"><u><b>Login</b></u></string>
+    <string name="tandc"><u>syarat &amp; ketentuan</u></string>
+
+    <string name="msg_token_fmt" translatable="false">%s</string>
+</resources>
